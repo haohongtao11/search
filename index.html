@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			mui.ready(function() {
+				var textvalue = ""
+				Keydata = ['钢笔', '铅笔', '毛笔']
+				info = ['广义上的钢笔是人们普遍使用的书写工具，发明于19世纪初，由美国人华特曼设计。笔头由金属制成，书写起来圆滑而有弹性，相当流畅。在笔帽口处或笔尖表面，均有明显的商标牌号、型号。如果按照吸水（上墨）方式还分为蘸水式钢笔、自来水式钢笔和墨囊钢笔。使用时要注意保养和清洗。',
+					'铅笔（qiān bǐ，Pencil），是一种用来书写以及绘画素描专用的笔类，距今已有四百多年的历史，其中，绘画素描的铅笔分为诸多类型，它分成三个发展阶段，分为石墨、木制笔杆、带帽铅笔；另外，它的颜色有红白、黑白、黄黑等条纹。',
+					'毛笔（Chinese brush，writing brush），是一种源于中国的传统书写工具，也逐渐成为传统绘画工具。毛笔是古代中国人民在生产实践中发明的。随着人类社会的不断发展，勤劳智慧的中华民族又不断地总结经验，存其精华，弃其糟粕，勇于探索，敢于创新。几千年以来，它为创造中华民族光辉灿烂的文化，为促进中华民族与世界各族的文化交流，做出了卓越的贡献。毛笔是中华民族对世界艺术宝库贡献的一件珍宝。'
+				]
+				mui('.mui-content').on('tap', '.mui-btn', function() {
+					var selectkey = mui(".mui-content input")[0].value;
+					console.log(selectkey)
+					for (var i = 0; i < Keydata.length; i++) {
+						if (Keydata[i].includes(selectkey)) {
+							break;
+						}
+					}
+					if (i >= Keydata.length) {
+						textvalue = "为查询到相关结果，请换个词试试。"
+					} else {
+						textvalue = info[i]
+					}
+					document.querySelector('.jieguo').innerHTML = textvalue
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">一查就知道</h1>
+		</header>
+		<div class="mui-content">
+			<div id="ss" style="padding-top: 50px;display: flex;padding-left: 50px;">
+				<div class="mui-input-row" style="width: 70%;">
+					<input  type="text" placeholder="请输入搜索关键字(钢笔, 铅笔, 毛笔)" class="mui-input-clear">
+				</div>
+				<div >
+					<button type="button" class="mui-btn mui-btn-blue " style="margin-left: 20px;">按钮</button>
+				</div>
+			</div>
+			
+			
+
+			<div class='jieguo' style="padding-left: 50px;padding-right: 50px;"></div>
+
+		</div>
+	</body>
+</html>
